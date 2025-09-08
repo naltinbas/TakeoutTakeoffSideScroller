@@ -6,17 +6,17 @@ public class AudioSourceManager : MonoBehaviour
     
     private static GameObject _audioObj; 
     private static AudioSource _audioSource;
+    private static AudioSource _tempAudioSource;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         _audioObj = new GameObject("AudioObject");
         _audioSource = _audioObj.AddComponent<AudioSource>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        _audioSource.clip = Resources.Load<AudioClip>("flying");
+        _audioSource.loop = true;
+        _audioSource.volume = 0.5f;
+        _audioSource.Play();
+        _tempAudioSource = _audioObj.AddComponent<AudioSource>();
     }
 
     public static void PlaySound(String tag)
@@ -34,7 +34,7 @@ public class AudioSourceManager : MonoBehaviour
                 soundName = "failure";
                 break;
         }
-        _audioSource.clip = Resources.Load<AudioClip>(soundName);
-        _audioSource.Play();
+        _tempAudioSource.clip = Resources.Load<AudioClip>(soundName);
+        _tempAudioSource.Play();
     }
 }
