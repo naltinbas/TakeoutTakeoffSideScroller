@@ -1334,7 +1334,7 @@ GameObject:
   - component: {fileID: 1399671534}
   - component: {fileID: 1399671535}
   m_Layer: 0
-  m_Name: Coin
+  m_Name: MainCoin
   m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1578,7 +1578,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plane: {fileID: 1229794307}
-  initialVelocity: {x: 0, y: 5, z: 10}
   lifeTime: 10
 --- !u!1 &1659136958
 GameObject:
