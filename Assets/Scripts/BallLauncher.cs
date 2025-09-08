@@ -30,7 +30,20 @@ public class BallLauncher : MonoBehaviour
         {
             gameObject.GetComponent<Renderer>().enabled = false;
             Launch();
+        }else if (Input.GetKeyDown(KeyCode.R))
+        {
+            ResetState();
         }
+    }
+
+    private void ResetState()
+    {
+        if (gameObject.name == "MainCoin")
+        {
+            gameObject.GetComponent<Renderer>().enabled = true;
+        }
+        isCoinCollected = false;
+        _hasBallLaunched = false;
     }
     
     private IEnumerator ResetBallLaunched(float delayTime)
