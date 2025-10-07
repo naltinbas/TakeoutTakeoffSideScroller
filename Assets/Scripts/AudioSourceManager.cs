@@ -19,6 +19,12 @@ public class AudioSourceManager : MonoBehaviour
         _tempAudioSource = _audioObj.AddComponent<AudioSource>();
     }
 
+    public static void PlayTempSound(string soundName)
+    {
+        _tempAudioSource.clip = Resources.Load<AudioClip>(soundName);
+        _tempAudioSource.Play();
+    }
+
     public static void PlaySound(String tag)
     {
         String soundName = "";
@@ -33,8 +39,13 @@ public class AudioSourceManager : MonoBehaviour
             case "Ground":
                 soundName = "failure";
                 break;
+            case "Birds":
+                soundName = "chirping";
+                break;
+            case "Cloud":
+                soundName = "thunder";
+                break;
         }
-        _tempAudioSource.clip = Resources.Load<AudioClip>(soundName);
-        _tempAudioSource.Play();
+        PlayTempSound(soundName);
     }
 }
